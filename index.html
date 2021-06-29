@@ -5,53 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jae Smartphone</title>
+    <style>
+        .selected{
+            color: greenyellow;
+            background:black
+        }
+
+        .selectedBody{
+            color: #66ff00;
+            background: #654321;
+        }
+        /*EX10.: Write a function to add a CSS class to every Amazon link
+        not really a class here but making changes to the link*/
+        a:hover{
+            background-color: blue;
+            color:white
+        }
+    </style>
 </head>
 <body>
     <header>
         <!--EX1.: Add an h1 tag with the name of your shop-->
         <h1>Jae Smartphone </h1>
+        <button onclick="toggleh1Text()">H1TextChanger - Style Me Up</button>
+        <br>
     </header>
     <div class="productTable">
+        <br>
+        <button onclick="changeBackgroundColor()">Change Background Color</button>
         <table>
             <!-- EX2.: Add a TABLE with the top 5 products of your shop-->
             <!-- EX3.: Insert for each product an image, a title, a description and a price -->
             <!--EX4.: Add links to existing Amazon products for each item in the table -->
             <tr>
                 <th>Number</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Price(EUR)</th>
             </tr>
             <tr>
                 <td>1</td>
+                <td><img src="https://images-na.ssl-images-amazon.com/images/I/71VH6X0URML._AC_SL1500_.jpg"
+                    alt="Image of Samsung Galaxy Note 20 Ultra" width="200" height="200"></td>
                 <td><a href="https://www.amazon.de/Samsung-Smartphone-Infinity-Speicher-Herstellergarantie-Mystic-Bronze/dp/B08DRK988B/ref=sr_1_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Samsung+Galaxy+Note+20+Ultra&qid=1624969788&sr=8-2"
                 target = "_blank">Samsung Galaxy Note 20 Ultra</a></td>
                 <td>The 5x optical camera zoom crushes it</td>
                 <td>1079</td>
             </tr>
             <tr>
-                <td>2</td>            
+                <td>2</td>
+                <td><img src="https://images-na.ssl-images-amazon.com/images/I/71CaXdX4AJL._AC_SL1500_.jpg"
+                    alt="Image of iPhone 12 Pro Max" width="170" height="200"></td>            
                 <td><a href="https://www.amazon.de/Neues-Apple-iPhone-Pro-256-GB/dp/B08L5TF4D4/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=iphone+12+pro+max&qid=1624969973&sr=8-3"
                 target = "blank"> iPhone 12 Pro Max</a></td>
                 <td>Our favorite iPhone</td>
                 <td>1255.09</td>
             </tr>
             <tr>
-                <td>3</td>            
+                <td>3</td>   
+                <td><img src="https://images-na.ssl-images-amazon.com/images/I/81gybZe2ArL._AC_SL1500_.jpg"
+                    alt="Image of Samsung Galaxy S21" width="170" height="200"></td>         
                 <td><a href="https://www.amazon.de/Samsung-Galaxy-Smartphone-Phantom-Android/dp/B08QXG6Y6F/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Samsung+Galaxy+S21&qid=1624970052&sr=8-4"
                 target="_blank">Samsung Galaxy S21</a></td>
                 <td>Not the best of the S series, but nevertheless great</td>
                 <td>691.90</td>
             </tr>
             <tr>
-                <td>4</td>            
+                <td>4</td>  
+                <td><img src="https://images-na.ssl-images-amazon.com/images/I/710LmPSDpbL._AC_SL1500_.jpg"  
+                    alt="Image of iPhone 12 Mini" width="170" height="200"></td>          
                 <td><a href="https://www.amazon.de/Neues-Apple-iPhone-Mini-128-GB/dp/B08L5TQBHV/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=iPhone+12+mini&qid=1624970157&sr=8-3"
                      target = "blank">iPhone 12 mini</a></td>
                 <td>The best Apple iPhone bang for your buck</td>
                 <td>746</td>
             </tr>
             <tr>
-                <td>5</td>            
+                <td>5</td> 
+                <td><img src="https://images-na.ssl-images-amazon.com/images/I/71koYhbr-3S._AC_SL1500_.jpg"
+                    alt="Image of OnePlus Pro 9" width="150" height="200"></td>           
                 <td><a href="https://www.amazon.de/ONEPLUS-SIM-freies-Smartphone-Hasselblad-Kamera-Smartphones-Stellar-Schwarz/dp/B08V1LQQ1T/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=OnePlus+Pro+9&qid=1624970212&sr=8-3"
                 target = "_blank">OnePlus Pro 9</a></td>
                 <td>A giant leap for OnePlus photography</td>
@@ -71,12 +103,41 @@
         <footer>
             <div class="imprint">
                 <h4>Imprint</h4>
-                <p>Address: Mariendorfer Damm 178, 12107 Berlin</p>
+                <p id="address">Address: Mariendorfer Damm 178, 12107 Berlin</p>
                 <p>Owner: Weoy Howe Ang</p>
                 <p>Contact: +4917642052332</p>
             </div>
+            <button onclick="changeToFakeAddress()">Try this fake Address</button>
+            <button onclick="changeToRealAddress()">Change Me Back</button>
         </footer>
     </div>
+    <script lang="text/javascript">
+    //EX7.: Write a function to change the h1 text
+    let toggleh1Text = function(){
+        let geth1Text = document.querySelector("h1")
+        geth1Text.classList.toggle("selected")
+    } 
+    //EX8.: Write a function to change the page background color
+    let changeBackgroundColor = function(){
+        let getBody = document.querySelector("body") 
+        getBody.classList.toggle("selectedBody")
+    }
+
+    //EX9.: Write a function to change the footer address with a fake one
+
+    let changeToFakeAddress = function(){
+        let getAddress = document.getElementById("address")
+        getAddress.innerText = "Address: Dark Snow Valley 97, 99876 Mars"
+    }
+
+    let changeToRealAddress = function(){
+        let getAddress = document.getElementById("address")
+        getAddress.innerText = "Address: Mariendorfer Damm 178, 12107 Berlin"
+        alert("We fell right back to Earth. Damn it! ")
+    }
+
+
+    </script>
     
     
 </body>
